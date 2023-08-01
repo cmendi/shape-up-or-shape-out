@@ -19,17 +19,18 @@ class Shape {
 	}
 
 	position() {
-		this.x = Math.floor(Math.random() * (750 - this.width));
-		this.y = Math.floor(Math.random() * (750 - this.height));
+		this.x = Math.floor(Math.random() * (500 - this.width));
+		console.log(this.x); // NaN? why is this not a number?
+		this.y = Math.floor(Math.random() * (500 - this.height));
 	}
 
 	style() {
-		this.div.style.position = "absolute";
 		this.div.style.backgroundColor = this.color;
 		this.div.style.width = this.width;
 		this.div.style.height = this.height;
 		this.div.style.left = this.x;
 		this.div.style.top = this.y;
+		this.div.style.border = "2px solid black";
 	}
 
 	draw() {
@@ -53,6 +54,7 @@ rectangleBtn.addEventListener("click", (e) => {
 	const rectangleHeight = document.getElementById("rectangleHeight").value;
 	const rectangleWidth = document.getElementById("rectangleWidth").value;
 	new Rectangle(rectangleHeight, rectangleWidth);
+	alert(rectangleHeight);
 	e.preventDefault();
 });
 squareBtn.addEventListener("click", () => console.log("working"));

@@ -35,10 +35,12 @@
 				</div>
 			</form>
 		</div>
-		<div class="container mb-4">
+		<div class="container-fluid mb-4">
 			<div class="d-flex justify-content-evenly">
-				<div class="">
-					<div id="shapeDiv" class="rounded"></div>
+				<div class="row">
+					<div class="rounded d-flex justify-content-center">
+						<div id="shapeDiv"></div>
+					</div>
 				</div>
 				<div id="shapeStatDiv" class="rounded d-flex flex-column justify-content-center justify-content-evenly p-4">
 					<h3 class="align-self-center">Shape Data</h3>
@@ -72,3 +74,17 @@
 		<script src="app.js"></script>
 	</body>
 </html>
+
+<section class="container-fluid" id="content-container">
+	<div class="row">
+		<div class="col-md-8 d-flex justify-content-center">
+			<div id="shape-container"></div>
+		</div>
+		<div class="col-md-4 d-flex justify-content-center">
+			<div id="data-container">
+				<h2>Data:</h2>
+				<p></p>
+			</div>
+		</div>
+	</div>
+</section>
