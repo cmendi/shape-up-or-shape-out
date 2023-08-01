@@ -18,11 +18,42 @@ const statRadius = document.getElementById("statRadius");
 class Shape {
 	constructor() {
 		this.div = document.createElement("div");
+	}
+
+	position() {
+		this.x = Math.floor(Math.random() * (750 - this.width));
+		this.y = Math.floor(Math.random() * (750 - this.height));
+	}
+
+	style() {
+		this.div.style.position = "absolute";
+		this.div.style.backgroundColor = this.color;
+		this.div.style.width = this.width;
+		this.div.style.height = this.height;
+		this.div.style.left = this.x;
+		this.div.style.top = this.y;
+	}
+
+	draw() {
 		shapeDiv.append(this.div);
 	}
 }
 
-rectangleBtn.addEventListener("click", () => console.log("working"));
+class Rectangle extends Shape {
+	constructor(height, width) {
+		super();
+		this.height = height;
+		this.width = width;
+		this.color = "red";
+		this.position();
+		this.style();
+		this.draw();
+	}
+}
+
+rectangleBtn.addEventListener("click", () => {
+	alert(rectangleHeight);
+});
 squareBtn.addEventListener("click", () => console.log("working"));
 circleBtn.addEventListener("click", () => console.log("working"));
 btnTriangle.addEventListener("click", () => console.log("working"));
