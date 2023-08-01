@@ -1,0 +1,13 @@
+#shapeDiv {
+	width: 500px;
+	height: 500px;
+	background-color: aqua;
+	border: 2px solid black;
+}
+
+#shapeStatDiv {
+	width: 250px;
+	height: 500px;
+	background-color: rgba(255, 0, 0, 0.2);
+	border: 2px solid black;
+}
