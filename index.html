@@ -13,65 +13,31 @@
 		<title>Shape Up Or Shape Out</title>
 	</head>
 	<body>
-		<div
-			class="container text-center p-3 mt-4 border border-black border-3 rounded shadow"
-		>
+		<div class="container text-center p-3 mt-4 border border-black border-3 rounded shadow">
 			<h3>Add A Shape!</h3>
 			<form>
-			<div class="input-group m-4 w-auto">
-				<input id="btnRectangle" class="btn btn-primary" value="Add Rectangle" type="submit"></input>
-				<input
-					id="rectangleHeight"
-					type="text"
-					class="form-control"
-					placeholder="height px"
-				/>
-				<input
-					id="rectangleWidth"
-					type="text"
-					class="form-control"
-					placeholder="width px"
-				/>
-			</div>
-			<div class="input-group m-4 w-auto">
-				<input
-					id="sqruareLength"
-					type="text"
-					class="form-control"
-					placeholder="side length px"
-				/>
-				<input id="btnSquare" class="btn btn-primary" value="Add Square" type="submit"></input>
-			</div>
-			<div class="input-group m-4 w-auto">
-				<input id="btnCircle" class="btn btn-primary" value="Add Cricle" type="submit"></input>
-				<input
-					id="circleRadius"
-					type="text"
-					class="form-control"
-					placeholder="radius px"
-				/>
-			</div>
-			<div class="input-group m-4 w-auto">
-				<input
-					id="triangleHeight"
-					type="text"
-					class="form-control"
-					placeholder="height px"
-				/>
-				<input id="btnTriangle" class="btn btn-primary" value="Add Triangle" type="submit"></input>
-			</div>
-		</form>
+				<div class="input-group m-4 w-auto">
+					<input id="btnRectangle" class="btn btn-primary" value="Add Rectangle" type="submit" />
+					<input id="rectangleHeight" type="text" class="form-control" placeholder="height px" />
+					<input id="rectangleWidth" type="text" class="form-control" placeholder="width px" />
+				</div>
+				<div class="input-group m-4 w-auto">
+					<input id="sqruareLength" type="text" class="form-control" placeholder="side length px" />
+					<input id="btnSquare" class="btn btn-primary" value="Add Square" type="submit" />
+				</div>
+				<div class="input-group m-4 w-auto">
+					<input id="btnCircle" class="btn btn-primary" value="Add Cricle" type="submit" />
+					<input id="circleRadius" type="text" class="form-control" placeholder="radius px" />
+				</div>
+				<div class="input-group m-4 w-auto">
+					<input id="triangleHeight" type="text" class="form-control" placeholder="height px" />
+					<input id="btnTriangle" class="btn btn-primary" value="Add Triangle" type="submit" />
+				</div>
+			</form>
 		</div>
 		<div class="container d-flex justify-content-evenly mt-4">
-			<div
-				id="shapeDiv"
-				class="border border-black bg-info"
-				style="height: 750px; width: 750px"
-			></div>
-			<div
-				class="border border-black bg-dark-subtle d-flex flex-column justify-content-center"
-				style="height: 750px; width: 350px"
-			>
+			<div id="shapeDiv" class="border border-black bg-info" style="height: 750px; width: 750px"></div>
+			<div class="border border-black bg-dark-subtle d-flex flex-column justify-content-center" style="height: 750px; width: 350px">
 				<div class="input-group m-4 w-auto">
 					<span class="input-group-text">Shape</span>
 					<input id="shapeStat" class="form-control" readonly />

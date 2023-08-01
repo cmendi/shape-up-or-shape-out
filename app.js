@@ -1,6 +1,4 @@
 const rectangleBtn = document.getElementById("btnRectangle");
-const rectangleHeight = document.getElementById("rectangleHeight");
-const rectangleWidth = document.getElementById("rectangleWidth");
 const squareLength = document.getElementById("sqruareLength");
 const squareBtn = document.getElementById("btnSquare");
 const circleBtn = document.getElementById("btnCircle");
@@ -42,17 +40,20 @@ class Shape {
 class Rectangle extends Shape {
 	constructor(height, width) {
 		super();
-		this.height = height;
-		this.width = width;
+		this.height = height + "px";
+		this.width = width + "px";
 		this.color = "red";
-		this.position();
 		this.style();
+		this.position();
 		this.draw();
 	}
 }
 
-rectangleBtn.addEventListener("click", () => {
-	alert(rectangleHeight);
+rectangleBtn.addEventListener("click", (e) => {
+	const rectangleHeight = document.getElementById("rectangleHeight").value;
+	const rectangleWidth = document.getElementById("rectangleWidth").value;
+	new Rectangle(rectangleHeight, rectangleWidth);
+	e.preventDefault();
 });
 squareBtn.addEventListener("click", () => console.log("working"));
 circleBtn.addEventListener("click", () => console.log("working"));
