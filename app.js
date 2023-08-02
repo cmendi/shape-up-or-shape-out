@@ -1,9 +1,6 @@
 const rectangleBtn = document.getElementById("btnRectangle");
-const squareLength = document.getElementById("sqruareLength");
 const squareBtn = document.getElementById("btnSquare");
 const circleBtn = document.getElementById("btnCircle");
-const circleRadius = document.getElementById("circleRadius");
-const triangleHeight = document.getElementById("triangleHeight");
 const btnTriangle = document.getElementById("btnTriangle");
 const shapeDiv = document.getElementById("shapeDiv");
 const shapeStat = document.getElementById("shapeStat");
@@ -16,37 +13,123 @@ const statRadius = document.getElementById("statRadius");
 class Shape {
 	constructor() {
 		this.div = document.createElement("div");
+		this.div.addEventListener("click", () => {
+			this.describe();
+		});
+		this.div.addEventListener("dblclick", () => {
+			this.div.remove();
+			this.deleteStats();
+		});
 	}
 
 	position() {
-		this.x = Math.floor(Math.random() * (500 - this.width));
-		console.log(this.x); // NaN? why is this not a number?
-		this.y = Math.floor(Math.random() * (500 - this.height));
+		this.x = Math.floor(Math.random() * (600 - this.width));
+		this.y = Math.floor(Math.random() * (600 - this.height));
 	}
 
 	style() {
+		this.div.style.position = "absolute";
 		this.div.style.backgroundColor = this.color;
-		this.div.style.width = this.width;
-		this.div.style.height = this.height;
-		this.div.style.left = this.x;
-		this.div.style.top = this.y;
+		this.div.style.width = this.width + "px";
+		this.div.style.height = this.height + "px";
+		this.div.style.left = this.x + "px";
+		this.div.style.top = this.y + "px";
 		this.div.style.border = "2px solid black";
+		this.div.style.borderRadius = this.radius + "px";
 	}
 
 	draw() {
 		shapeDiv.append(this.div);
+	}
+
+	describe() {
+		shapeStat.value = this.name;
+		heightStat.value = this.height;
+		statWidth.value = this.width;
+		statArea.value = this.area;
+		statPerimeter.value = this.perimeter;
+		statRadius.value = this.radius;
+	}
+
+	deleteStats() {
+		shapeStat.value = "";
+		heightStat.value = "";
+		statWidth.value = "";
+		statArea.value = "";
+		statPerimeter.value = "";
+		statRadius.value = "";
 	}
 }
 
 class Rectangle extends Shape {
 	constructor(height, width) {
 		super();
-		this.height = height + "px";
-		this.width = width + "px";
-		this.color = "red";
-		this.style();
+		this.name = "rectangle";
+		this.height = height;
+		this.width = width;
+		this.color = "green";
+		this.area = height * width;
+		this.perimeter = (height + width) * 2;
+		this.radius = "N/A";
 		this.position();
+		this.style();
 		this.draw();
+	}
+}
+class Square extends Shape {
+	constructor(sideLength) {
+		super();
+		this.name = "square";
+		this.height = sideLength;
+		this.width = sideLength;
+		this.color = "red";
+		this.area = sideLength * sideLength;
+		this.perimeter = (sideLength + sideLength) * 2;
+		this.radius = "N/A";
+		this.position();
+		this.style();
+		this.draw();
+	}
+}
+class Circle extends Shape {
+	constructor(radius) {
+		super();
+		this.radius = radius;
+		this.name = "circle";
+		this.height = radius * 2;
+		this.width = radius * 2;
+		this.color = "purple";
+		this.area = Math.PI * radius * radius;
+		this.perimeter = 2 * Math.PI * 2;
+		this.position();
+		this.style();
+		this.draw();
+	}
+}
+class Triangle extends Shape {
+	constructor(height) {
+		super();
+		this.name = "triangle";
+		this.height = height;
+		this.width = height;
+		this.color = "yellow";
+		this.area = 0.5 * height * height;
+		this.perimeter = 3 * height;
+		this.radius = "N/A";
+		this.position();
+		this.style();
+		this.draw();
+	}
+
+	style() {
+		this.div.style.position = "absolute";
+		this.div.style.width = 0 + "px";
+		this.div.style.height = 0 + "px";
+		this.div.style.left = this.x + "px";
+		this.div.style.top = this.y + "px";
+		this.div.style.borderLeft = this.height / 2 + "px solid transparent";
+		this.div.style.borderRight = this.height / 2 + "px solid transparent";
+		this.div.style.borderBottom = this.height + "px solid yellow";
 	}
 }
 
@@ -54,9 +137,20 @@ rectangleBtn.addEventListener("click", (e) => {
 	const rectangleHeight = document.getElementById("rectangleHeight").value;
 	const rectangleWidth = document.getElementById("rectangleWidth").value;
 	new Rectangle(rectangleHeight, rectangleWidth);
-	alert(rectangleHeight);
 	e.preventDefault();
 });
-squareBtn.addEventListener("click", () => console.log("working"));
-circleBtn.addEventListener("click", () => console.log("working"));
-btnTriangle.addEventListener("click", () => console.log("working"));
+squareBtn.addEventListener("click", (e) => {
+	const squareLength = document.getElementById("sqruareLength").value;
+	new Square(squareLength);
+	e.preventDefault();
+});
+circleBtn.addEventListener("click", (e) => {
+	const circleRadius = document.getElementById("circleRadius").value;
+	new Circle(circleRadius);
+	e.preventDefault();
+});
+btnTriangle.addEventListener("click", (e) => {
+	const triangleHeight = document.getElementById("triangleHeight").value;
+	new Triangle(triangleHeight);
+	e.preventDefault();
+});
