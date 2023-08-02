@@ -136,21 +136,38 @@ class Triangle extends Shape {
 rectangleBtn.addEventListener("click", (e) => {
 	const rectangleHeight = document.getElementById("rectangleHeight").value;
 	const rectangleWidth = document.getElementById("rectangleWidth").value;
-	new Rectangle(rectangleHeight, rectangleWidth);
+	if (rectangleHeight <= 400 && rectangleWidth <= 400) {
+		new Rectangle(rectangleHeight, rectangleWidth);
+	} else {
+		alert("Enter a pixel value between 1 and 400");
+	}
+
 	e.preventDefault();
 });
 squareBtn.addEventListener("click", (e) => {
 	const squareLength = document.getElementById("sqruareLength").value;
-	new Square(squareLength);
+	if (squareLength <= 400) {
+		new Square(squareLength);
+	} else {
+		alert("Enter a pixel value between 1 and 400");
+	}
 	e.preventDefault();
 });
 circleBtn.addEventListener("click", (e) => {
 	const circleRadius = document.getElementById("circleRadius").value;
-	new Circle(circleRadius);
+	if (circleRadius <= 200) {
+		new Circle(circleRadius);
+	} else {
+		alert("Enter a pixel value between 1 and 200");
+	}
 	e.preventDefault();
 });
 btnTriangle.addEventListener("click", (e) => {
 	const triangleHeight = document.getElementById("triangleHeight").value;
-	new Triangle(triangleHeight);
+	if (triangleHeight <= 200) {
+		new Triangle(triangleHeight);
+	} else {
+		alert("Enter a pixel value between 1 and 600");
+	}
 	e.preventDefault();
 });
